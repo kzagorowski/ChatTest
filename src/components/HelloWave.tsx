@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { StyleSheet } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -7,6 +6,8 @@ import Animated, {
   withSequence,
   withTiming,
 } from 'react-native-reanimated';
+// eslint-disable-next-line import/no-unresolved
+import styled from 'styled-components/native';
 
 import { ThemedText } from '@/components/ThemedText';
 
@@ -26,15 +27,13 @@ export function HelloWave() {
 
   return (
     <Animated.View style={animatedStyle}>
-      <ThemedText style={styles.text}>👋</ThemedText>
+      <WaveText>👋</WaveText>
     </Animated.View>
   );
 }
 
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 28,
-    lineHeight: 32,
-    marginTop: -6,
-  },
-});
+const WaveText = styled(ThemedText)`
+  font-size: 28px;
+  line-height: 32px;
+  margin-top: -6px;
+`;
